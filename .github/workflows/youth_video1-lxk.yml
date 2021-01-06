@@ -17,8 +17,8 @@ jobs:
       YOUTH_VIDEO2: ${{ secrets.YOUTH_VIDEO2 }}
       YOUTH_VIDEO3: ${{ secrets.YOUTH_VIDEO3 }}
       YOUTH_VIDEO4: ${{ secrets.YOUTH_VIDEO4 }}
-      YOUTH_VIDEO3: ${{ secrets.YOUTH_VIDEO5 }}
-      YOUTH_VIDEO4: ${{ secrets.YOUTH_VIDEO6 }}
+      YOUTH_VIDEO5: ${{ secrets.YOUTH_VIDEO5 }}
+      YOUTH_VIDEO6: ${{ secrets.YOUTH_VIDEO6 }}
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
     steps:
@@ -33,37 +33,37 @@ jobs:
       - name: '运行 【中青看点账号1-视频观看1-50个】'
         if: env.YOUTH_VIDEO
         run: |
-          node Task/Youth_Read.js
+          node Youth_Read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_VIDEO }}
 
       - name: '运行 【中青看点账号1-视频观看50-100个】'
         if: env.YOUTH_VIDEO2
         run: |
-          node Task/Youth_Read.js
+          node Youth_Read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_VIDEO2 }}
       - name: '运行 【中青看点账号2-视频观看1-50个】'
         if: env.YOUTH_VIDEO3
         run: |
-          node Task/Youth_Read.js
+          node Youth_Read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_VIDEO3 }}
       - name: '运行 【中青看点账号2-视频观看50-100个】'
         if: env.YOUTH_VIDEO4
         run: |
-          node Task/Youth_Read.js
+          node Youth_Read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_VIDEO4 }}
       - name: '运行 【中青看点账号3-视频观看1-50个】'
         if: env.YOUTH_VIDEO5
         run: |
-          node Task/Youth_Read.js
+          node Youth_Read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_VIDEO5 }}
-      - name: '运行 【中青看点账号2-视频观看50-100个】'
+      - name: '运行 【中青看点账号3-视频观看50-100个】'
         if: env.YOUTH_VIDEO6
         run: |
-          node Task/Youth_Read.js
+          node Youth_Read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_VIDEO6 }}
