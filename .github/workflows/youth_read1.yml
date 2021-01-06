@@ -21,6 +21,7 @@ jobs:
       YOUTH_READ16: ${{ secrets.YOUTH_READ16 }}
       YOUTH_READ17: ${{ secrets.YOUTH_READ17 }}
       YOUTH_READ18: ${{ secrets.YOUTH_READ18 }}
+      YOUTH_READ19: ${{ secrets.YOUTH_READ19 }}
 
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
@@ -82,5 +83,11 @@ jobs:
           node Youth_Read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ18 }}
+      - name: '运行 【中青看点账号19】'
+        if: env.YOUTH_READ         
+        run: |
+          node Youth_Read.js
+        env:
+          YOUTH_READ: ${{ secrets.YOUTH_READ19 }}
 
 
