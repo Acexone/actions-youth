@@ -13,14 +13,14 @@ on:
 jobs:
   build:
     env:
-      YOUTH_READ3: ${{ secrets.YOUTH_READ31 }}
-      YOUTH_READ3: ${{ secrets.YOUTH_READ32 }}
-      YOUTH_READ3: ${{ secrets.YOUTH_READ33 }}
-      YOUTH_READ3: ${{ secrets.YOUTH_READ34 }}
-      YOUTH_READ3: ${{ secrets.YOUTH_READ35 }}
-      YOUTH_READ3: ${{ secrets.YOUTH_READ36 }}
-      YOUTH_READ3: ${{ secrets.YOUTH_READ37 }}
-      YOUTH_READ3: ${{ secrets.YOUTH_READ38 }}
+      YOUTH_READ31: ${{ secrets.YOUTH_READ31 }}
+      YOUTH_READ32: ${{ secrets.YOUTH_READ32 }}
+      YOUTH_READ33: ${{ secrets.YOUTH_READ33 }}
+      YOUTH_READ34: ${{ secrets.YOUTH_READ34 }}
+      YOUTH_READ35: ${{ secrets.YOUTH_READ35 }}
+      YOUTH_READ36: ${{ secrets.YOUTH_READ36 }}
+      YOUTH_READ37: ${{ secrets.YOUTH_READ37 }}
+      YOUTH_READ38: ${{ secrets.YOUTH_READ38 }}
 
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
