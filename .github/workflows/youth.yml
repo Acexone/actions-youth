@@ -6,10 +6,12 @@ name: youth(中青看点)
 on:
   workflow_dispatch:
   schedule:
-     - cron: '*/25 1-15/2 * * *'
+     - cron: '30 8-23/2 * * *'
   watch:
     types: youth
-
+env:
+  TZ: Asia/Shanghai
+ 
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -22,7 +24,7 @@ jobs:
     steps:
       - name: Checkout
         run: |
-          git clone https://github.com/Sunert/Scripts.git ~/Scripts
+          git clone https://github.com/adw2s/Scripts.git ~/Scripts
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1
         with:
