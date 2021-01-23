@@ -6,11 +6,9 @@ name: youth(中青看点)
 on:
   workflow_dispatch:
   schedule:
-     - cron: '30 7-23/2 * * *'
+     - cron: '30 0-16/2 * * *'
   watch:
     types: youth
-env:
-  TZ: Asia/Shanghai
  
 jobs:
   build:
