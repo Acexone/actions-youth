@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
   # 账号越多文章越多，运行一次消耗的时间也越长，文章和视频不要一块运行，cron自己看着写
   schedule:
-     - cron: '30 0-16/2 * * *'
+     - cron: '30 0-18/2 * * *'
   watch:
     types: started
 env:
@@ -24,6 +24,7 @@ jobs:
       YOUTH_READ36: ${{ secrets.YOUTH_READ36 }}
       YOUTH_READ37: ${{ secrets.YOUTH_READ37 }}
       YOUTH_READ38: ${{ secrets.YOUTH_READ38 }}
+      YOUTH_READ39: ${{ secrets.YOUTH_READ39 }}
 
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
@@ -85,6 +86,12 @@ jobs:
           node Youth_Read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ38 }}
+      - name: '运行 【中青看点账号39】'
+        if: env.YOUTH_READ         
+        run: |
+          node Youth_Read.js
+        env:
+          YOUTH_READ: ${{ secrets.YOUTH_READ39 }}
 
 
 
