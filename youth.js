@@ -281,7 +281,7 @@ function signInfo() {
             headers: JSON.parse(signheaderVal),
         }
         $.post(infourl, async(error, response, data) => {
-          $.msg("signInfo的数据111",data);
+          //$.msg("signInfo的数据111",data);
             signinfo = JSON.parse(data);
             if (signinfo.status == 1) {
               cash = signinfo.data.user.money
@@ -338,7 +338,7 @@ function Cardshare() {
             headers: JSON.parse(signheaderVal),
         }
         $.post(starturl, (error, response, data) => {
-          $.msg("Cardshare的数据111",data);
+          //$.msg("Cardshare的数据111",data);
             sharestart = JSON.parse(data)
             //detail += `【打卡分享】${sharestart.msg}\n`
             if (sharestart.code == 1) {
@@ -369,7 +369,7 @@ function SevCont() {
             $.post({url: `${YOUTH_HOST}PunchCard/luckdraw?`,
               headers: JSON.parse(signheaderVal),
             }, async(error, response, data) => {
-              $.msg("SevCont的数据333",data);
+              //$.msg("SevCont的数据333",data);
                 sevres = JSON.parse(data)
                 if (sevres.code == 1) {
                     detail += `【七日签到】+${sevres.data.score}青豆 \n`
@@ -392,7 +392,7 @@ function ArticleShare() {
             }
             $.post(url, async(error, response, data) => {
                 //boxres = JSON.parse(data)
-                $.msg("ArticleShare的数据444",data);
+                //$.msg("ArticleShare的数据444",data);
                 resolve()
             })
         },s)
@@ -410,7 +410,7 @@ function openbox() {
             }
             $.post(url, async(error, response, data) => {
                 boxres = JSON.parse(data)
-                $.msg("openbox的数据555",data);
+                //$.msg("openbox的数据555",data);
                 if (boxres.code == 1) {
                   boxretime = boxres.data.time
                   $.setdata(boxretime, 'opbox')
@@ -724,7 +724,7 @@ function earningsInfo() {
             }
         $.get(url, (error, response, data) => {
               infores = JSON.parse(data)
-              $.msg("earningsInfo的数据666",data);
+              //$.msg("earningsInfo的数据666",data);
                 if (infores.status == 0) {
                     detail += `<收益统计>：\n`
                     for (i = 0; i < infores.history[0].group.length; i++) {
