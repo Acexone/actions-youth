@@ -7,7 +7,7 @@
 1.将下方[rewrite_local]和[MITM]地址复制的相应的区域
 下，运行时间自行配置
 2. 获取Cookie方法，可随时更新
- ① 进入app，进入任务中心或者签到一次,即可获取Cookie. 
+ ① 进入app，进入任务中心或者签到一次,即可获取Cookie.
  ② 阅读一篇文章，获取阅读请求body，
  ③ 同时获取阅读时长，
  ④ 在阅读文章最下面有个惊喜红包，点击获取惊喜红包请求
@@ -62,7 +62,7 @@ https:\/\/ios\.baertt\.com\/v5\/\w+\/withdraw\.json url script-request-body yout
 
 ~~~~~~~~~~~~~~~~
 [MITM]
-hostname = *.youth.cn, ios.baertt.com 
+hostname = *.youth.cn, ios.baertt.com
 ~~~~~~~~~~~~~~~~
 
 */
@@ -76,13 +76,13 @@ const withdrawcash = $.getdata('zqcash')||30 //提现金额
 const withdrawUrl =$.getdata('cashurl_zq')
 const withdrawBody =$.getdata('cashbody_zq')
 
-let logs = $.getdata('zqlogs')||false, rotaryscore=0,doublerotary=0,signresult; 
+let logs = $.getdata('zqlogs')||false, rotaryscore=0,doublerotary=0,signresult;
 let cookiesArr = [], signheaderVal = '',
     readArr = [], articlebodyVal ='',
     timeArr = [], timebodyVal = '',
     redpArr = [], redpbodyVal = '',
     detail = ``, subTitle = ``;
-let CookieYouth = [], ARTBODYs = [], 
+let CookieYouth = [], ARTBODYs = [],
     REDBODYs  = [], READTIME = [];
 if ($.isNode()) {
   if (process.env.YOUTH_HEADER && process.env.YOUTH_HEADER.indexOf('#') > -1) {
@@ -90,26 +90,26 @@ if ($.isNode()) {
   } else {
       CookieYouth = process.env.YOUTH_HEADER.split()
   };
-  
+
   if (process.env.YOUTH_ARTBODY && process.env.YOUTH_ARTBODY.indexOf('&') > -1) {
   ARTBODYs = process.env.YOUTH_ARTBODY.split('&');
   } else {
       ARTBODYs = process.env.YOUTH_ARTBODY.split()
   };
-  
+
   if (process.env.YOUTH_REDBODY && process.env.YOUTH_REDBODY.indexOf('&') > -1) {
   REDBODYs = process.env.YOUTH_REDBODY.split('&');
   } else {
       REDBODYs = process.env.YOUTH_REDBODY.split()
   };
-  
+
   if (process.env.YOUTH_TIME && process.env.YOUTH_TIME.indexOf('&') > -1) {
   READTIME = process.env.YOUTH_TIME.split('&');
   }else {
       READTIME = process.env.YOUTH_TIME.split()
   };
 }
-    
+
 if ($.isNode()) {
     Object.keys(CookieYouth).forEach((item) => {
         if (CookieYouth[item]) {
@@ -148,7 +148,7 @@ const opboxtime = $.getdata('opbox');
 if (isGetCookie = typeof $request !== 'undefined') {
    GetCookie();
    $.done()
-} 
+}
 
  !(async () => {
   if (!cookiesArr[0]) {
@@ -269,11 +269,11 @@ function sign() {
                 signresult = `【签到结果】重复`;
                 detail = "";
             }
-           resolve() 
+           resolve()
         })
     })
 }
-      
+
 function signInfo() {
     return new Promise((resolve, reject) => {
         const infourl = {
@@ -281,6 +281,7 @@ function signInfo() {
             headers: JSON.parse(signheaderVal),
         }
         $.post(infourl, async(error, response, data) => {
+          $.msg("signInfo的数据111",data);
             signinfo = JSON.parse(data);
             if (signinfo.status == 1) {
               cash = signinfo.data.user.money
@@ -337,6 +338,7 @@ function Cardshare() {
             headers: JSON.parse(signheaderVal),
         }
         $.post(starturl, (error, response, data) => {
+          $.msg("Cardshare的数据111",data);
             sharestart = JSON.parse(data)
             //detail += `【打卡分享】${sharestart.msg}\n`
             if (sharestart.code == 1) {
@@ -367,6 +369,7 @@ function SevCont() {
             $.post({url: `${YOUTH_HOST}PunchCard/luckdraw?`,
               headers: JSON.parse(signheaderVal),
             }, async(error, response, data) => {
+              $.msg("SevCont的数据333",data);
                 sevres = JSON.parse(data)
                 if (sevres.code == 1) {
                     detail += `【七日签到】+${sevres.data.score}青豆 \n`
@@ -389,6 +392,7 @@ function ArticleShare() {
             }
             $.post(url, async(error, response, data) => {
                 //boxres = JSON.parse(data)
+                $.msg("ArticleShare的数据444",data);
                 resolve()
             })
         },s)
@@ -406,6 +410,7 @@ function openbox() {
             }
             $.post(url, async(error, response, data) => {
                 boxres = JSON.parse(data)
+                $.msg("openbox的数据555",data);
                 if (boxres.code == 1) {
                   boxretime = boxres.data.time
                   $.setdata(boxretime, 'opbox')
@@ -430,7 +435,7 @@ function boxshare() {
                 headers: JSON.parse(signheaderVal),
             }
             $.post(url, (error, response, data) => {
-   
+
                 shareres = JSON.parse(data)
                 if (shareres.code == 1) {
                     detail += `【宝箱分享】+${shareres.data.score}青豆\n`
@@ -562,7 +567,7 @@ function readArticle() {
      if (typeof readres.items.read_score === 'number'&&readres.items.read_score!=0)  {
               detail += `【阅读奖励】+${readres.items.read_score}个青豆\n`;
              $.log(`阅读奖励 +${readres.items.read_score}个青豆\n`)
-            } 
+            }
     else if (readres.items.max_notice == '看太久了，换1篇试试') {
               //detail += `【阅读奖励】看太久了，换1篇试试\n`;
               //$.log(readres.items.max_notice)
@@ -697,7 +702,7 @@ function TurnDouble() {
           let time = (new Date()).getTime()
             const url = {
                 url: `${YOUTH_HOST}RotaryTable/toTurnDouble?_=${time}`,headers: JSON.parse(signheaderVal),body: rotarbody}
-            $.post(url, (error, response, data) => { 
+            $.post(url, (error, response, data) => {
               try{
                 Doubleres = JSON.parse(data)
                      } catch (e) {
@@ -719,6 +724,7 @@ function earningsInfo() {
             }
         $.get(url, (error, response, data) => {
               infores = JSON.parse(data)
+              $.msg("earningsInfo的数据666",data);
                 if (infores.status == 0) {
                     detail += `<收益统计>：\n`
                     for (i = 0; i < infores.history[0].group.length; i++) {
@@ -739,7 +745,7 @@ async function showmsg() {
         }else if (rotaryres.code == 10010 && notifyInterval != 0) {
          rotarynum = ` 转盘${rotaryres.msg}🎉`
          $.msg($.name+"  "+nick+" "+rotarynum,subTitle,detail)//任务全部完成且通知间隔不为0时通知;
-        } 
+        }
      else {
        console.log(`【收益总计】${signinfo.data.user.score}青豆  现金约${cash}元\n`+ detail)
    }
