@@ -33,6 +33,6 @@ jobs:
       - name: '运行 【中青看点账号61】'
         if: env.YOUTH_READ         
         run: |
-          node youth_read.js
+          node youth_read2.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ61 }}
