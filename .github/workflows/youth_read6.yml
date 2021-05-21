@@ -39,25 +39,25 @@ jobs:
           npm install
 
       - name: '运行 【中青看点账号61】'
-        if: env.YOUTH_READ         
+        if: env.YOUTH_READ61         
         run: |
           node youth_read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ61 }}
       - name: '运行 【中青看点账号62】'
-        if: env.YOUTH_READ         
+        if: env.YOUTH_READ62         
         run: |
           node youth_read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ62 }}
       - name: '运行 【中青看点账号63】'
-        if: env.YOUTH_READ         
+        if: env.YOUTH_READ63         
         run: |
           node youth_read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ63 }}
       - name: '运行 【中青看点账号64】'
-        if: env.YOUTH_READ         
+        if: env.YOUTH_READ64         
         run: |
           node youth_read.js
         env:
