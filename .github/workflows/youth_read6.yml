@@ -41,55 +41,55 @@ jobs:
       - name: '运行 【中青看点账号61】'
         if: env.YOUTH_READ         
         run: |
-          node Youth_Read.js
+          node youth_read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ61 }}
       - name: '运行 【中青看点账号62】'
         if: env.YOUTH_READ         
         run: |
-          node Youth_Read.js
+          node youth_read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ62 }}
       - name: '运行 【中青看点账号63】'
         if: env.YOUTH_READ         
         run: |
-          node Youth_Read.js
+          node youth_read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ63 }}
       - name: '运行 【中青看点账号64】'
         if: env.YOUTH_READ         
         run: |
-          node Youth_Read.js
+          node youth_read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ64 }}
       - name: '运行 【中青看点账号65】'
         if: env.YOUTH_READ         
         run: |
-          node Youth_Read.js
+          node youth_read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ65 }}
       - name: '运行 【中青看点账号66】'
         if: env.YOUTH_READ         
         run: |
-          node Youth_Read.js
+          node youth_read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ66 }}
       - name: '运行 【中青看点账号67】'
         if: env.YOUTH_READ         
         run: |
-          node Youth_Read.js
+          node youth_read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ67 }}
       - name: '运行 【中青看点账号68】'
         if: env.YOUTH_READ         
         run: |
-          node Youth_Read.js
+          node youth_read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ68 }}
       - name: '运行 【中青看点账号69】'
         if: env.YOUTH_READ         
         run: |
-          node Youth_Read.js
+          node youth_read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ69 }}
 
